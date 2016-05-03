@@ -73,7 +73,7 @@ const Router = React.createClass({
     this._unlisten = transitionManager.listen((error, state) => {
       if (error) {
         this.handleError(error)
-      } else {
+      } else if (this.isMounted()) {
         this.setState(state, this.props.onUpdate)
       }
     })
